@@ -1,0 +1,32 @@
+#!/usr/bin/env ruby
+
+require 'json'
+require 'fileutils'
+require 'erb'
+
+class TemplateBinding
+  attr_reader :name
+
+  def initialize(name)
+    @name = name
+  end
+
+  def get_binding
+    binding
+  end
+end
+
+config_path = File.join(Dir.pwd, "Templates/config.json")
+template_path = File.join(Dir.pwd, "Templates/tag_template.erb")
+raw_json = File.read(config_path)
+json = JSON.parse(raw_json, { symbolize_names: true })
+
+output = json.values.flatten.map do |tag|
+  template_binding = TemplateBinding.new(tag)
+  template = File.read(template_path)
+  file_content = ERB.new(template, nil, '-').result(template_binding.get_binding)
+end
+
+output_path = File.join(Dir.pwd, "Templates/generated")
+FileUtils.mkdir_p(output_path)
+File.write(File.join(output_path, "Html.swift"), output.flatten.join)
