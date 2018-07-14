@@ -83,6 +83,15 @@ let linkAD = { url in
     ])
 }
 
+let attr = attributeDecorator
+
+let linkComponent2: Component<Link> = { link in
+    a(link.text)
+        |> attr([.href(url: link.url)])
+        |> attr([.class(value: "link")])
+}
+
+
 let linkComponent: Component<Link> = { link in
     a(link.text)
         |> linkAD(link.url)

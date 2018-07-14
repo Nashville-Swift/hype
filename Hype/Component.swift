@@ -2,8 +2,7 @@
 //  Component.swift
 //  Hype
 //
-//  Created by Christopher Constable on 7/1/18.
-//  Copyright © 2018 Chris Constable. All rights reserved.
+//  Copyright © 2018 Nashville Swift Language Group. All rights reserved.
 //
 
 import Foundation
