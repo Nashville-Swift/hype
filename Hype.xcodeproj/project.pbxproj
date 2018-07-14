@@ -12,6 +12,7 @@
 		7805C60C20E826D300AAC73A /* Attribute.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7805C60B20E826D300AAC73A /* Attribute.swift */; };
 		7805C60E20E826EE00AAC73A /* Html.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7805C60D20E826EE00AAC73A /* Html.swift */; };
 		780B279B20E951F9002B435F /* Component.swift in Sources */ = {isa = PBXBuildFile; fileRef = 780B279A20E951F9002B435F /* Component.swift */; };
+		78645C6620FA917200E1DA7D /* AttributeDecorator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78645C6520FA917200E1DA7D /* AttributeDecorator.swift */; };
 		7870ADED20EC15D000150F7F /* Class.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7870ADEC20EC15D000150F7F /* Class.swift */; };
 		7870ADEF20EC197400150F7F /* Render.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7870ADEE20EC197400150F7F /* Render.swift */; };
 		7870ADF120EC2E8D00150F7F /* SemanticUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7870ADF020EC2E8D00150F7F /* SemanticUI.swift */; };
@@ -37,6 +38,7 @@
 		7805C60D20E826EE00AAC73A /* Html.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Html.swift; sourceTree = "<group>"; };
 		780B279A20E951F9002B435F /* Component.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Component.swift; sourceTree = "<group>"; };
 		782FF86520E9D8CC00E93F3C /* Styling.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = Styling.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
+		78645C6520FA917200E1DA7D /* AttributeDecorator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttributeDecorator.swift; sourceTree = "<group>"; };
 		7870ADEC20EC15D000150F7F /* Class.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Class.swift; sourceTree = "<group>"; };
 		7870ADEE20EC197400150F7F /* Render.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Render.swift; sourceTree = "<group>"; };
 		7870ADF020EC2E8D00150F7F /* SemanticUI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SemanticUI.swift; sourceTree = "<group>"; };
@@ -125,6 +127,7 @@
 				7805C60D20E826EE00AAC73A /* Html.swift */,
 				7872933C20E7E69100CCE01B /* Node.swift */,
 				7870ADEE20EC197400150F7F /* Render.swift */,
+				78645C6520FA917200E1DA7D /* AttributeDecorator.swift */,
 			);
 			path = Hype;
 			sourceTree = "<group>";
@@ -342,6 +345,7 @@
 			files = (
 				7805C60E20E826EE00AAC73A /* Html.swift in Sources */,
 				7805C60C20E826D300AAC73A /* Attribute.swift in Sources */,
+				78645C6620FA917200E1DA7D /* AttributeDecorator.swift in Sources */,
 				7872933D20E7E69100CCE01B /* Node.swift in Sources */,
 				780B279B20E951F9002B435F /* Component.swift in Sources */,
 				7870ADED20EC15D000150F7F /* Class.swift in Sources */,

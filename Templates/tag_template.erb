@@ -1,40 +1,12 @@
 
 // MARK: -
 
-public let <%= name %> = Node.element(name: "<%= name %>", classes: nil, attributes: nil, children: nil)
+public let <%= name %> = Node.element(name: "<%= name %>", attributes: [], child: .empty)
 
 public func <%= name %>(node: @escaping NodeThunk) -> Node {
-    return .element(name: "<%= name %>", classes: nil, attributes: nil, children: node())
-}
-
-public func <%= name %>(_ classes: [Class], node: @escaping NodeThunk) -> Node {
-    return .element(name: "<%= name %>", classes: classes, attributes: nil, children: node())
-}
-
-public func <%= name %>(classes: [Class]) -> Node {
-    return .element(name: "<%= name %>", classes: classes, attributes: nil, children: nil)
-}
-
-public func <%= name %>(attributes: [Attribute]) -> Node {
-    return .element(name: "<%= name %>", classes: nil, attributes: attributes, children: nil)
-}
-
-public func <%= name %>(_ classes: [Class], attributes: [Attribute]) -> Node {
-    return .element(name: "<%= name %>", classes: classes, attributes: attributes, children: nil)
-}
-
-public func <%= name %>(_ classes: [Class], attributes: [Attribute], node: @escaping NodeThunk) -> Node {
-    return .element(name: "<%= name %>", classes: classes, attributes: attributes, children: node())
+    return Node.element(name: "<%= name %>", attributes: [], child: node())
 }
 
 public func <%= name %>(_ text: String) -> Node {
-    return .element(name: "<%= name %>", classes: nil, attributes: nil, children: .text(text: text))
-}
-
-public func <%= name %>(_ classes: [Class], _ text: String) -> Node {
-    return .element(name: "<%= name %>", classes: classes, attributes: nil, children: .text(text: text))
-}
-
-public func <%= name %>(_ classes: [Class], attributes: [Attribute], _ text: String) -> Node {
-    return .element(name: "<%= name %>", classes: classes, attributes: attributes, children: .text(text: text))
+    return .element(name: "<%= name %>", attributes: [], child: .text(text: text))
 }

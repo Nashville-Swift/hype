@@ -10,20 +10,6 @@ import Foundation
 
 public typealias Component<T> = (T) -> Node
 
-public func container(_ node: Node) -> Component<Node> {
-    return { child in
-        switch node {
-        case let .element(name, classes, attributes, _):
-            return .element(name: name,
-                            classes: classes,
-                            attributes: attributes,
-                            children: child)
-        default:
-            return .empty
-        }
-    }
-}
-
 public func listComponent<T>(_ f: @escaping Component<T>) -> Component<[T]> {
     return { list in
         return list

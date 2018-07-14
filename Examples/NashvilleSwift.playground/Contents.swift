@@ -23,6 +23,6 @@ let dom = html {
     }
 }
 
-let webView = WKWebView(frame: CGRect(x: 0, y: 0, width: 1000, height: 1000))
+let webView = WKWebView(frame: CGRect(x: 0, y: 0, width: 700, height: 1000))
 webView.loadHTMLString(render(dom), baseURL: nil)
 PlaygroundPage.current.liveView = webView

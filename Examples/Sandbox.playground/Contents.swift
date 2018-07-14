@@ -47,3 +47,83 @@ let posts = [
     Post(title: "Server Side Swift", content: "Swift is pretty neat!")
 ]
 
+struct Link {
+    let text: String
+    let url: String
+}
+
+let links = [
+    Link(text: "First Link", url: "https://blah1"),
+    Link(text: "Second Link", url: "https://blah2")
+]
+
+struct App {
+    let link: Link
+    let name: String
+    let desc: String
+}
+
+let etsy = App(
+    link: Link(text: "Etsy", url: "https://etsy.com"),
+    name: "Etsy",
+    desc: "Handmade goods"
+)
+
+let instagram = App(
+    link: Link(text: "Instagram", url: "https://instagr.am"),
+    name: "Instagram",
+    desc: "Photos"
+)
+
+let apps = [etsy, instagram]
+
+let linkAD = { url in
+    return attributeDecorator([
+        .href(url: url)
+    ])
+}
+
+let linkComponent: Component<Link> = { link in
+    a(link.text)
+        |> linkAD(link.url)
+}
+
+let appComponent: Component<App> = { app in
+    div {
+        h3(app.name) +
+        p(app.desc) +
+        linkComponent(app.link)
+    }
+}
+
+let appsComponent = listComponent <| appComponent
+
+render(
+    linkAD("http://") <| a("test")
+)
+
+render(
+    appsComponent(apps)
+)
+
+let webview = WKWebView.init(frame: CGRect(x: 0, y: 0, width: 480, height: 600))
+webview.loadHTMLString(render(appsComponent(apps)), baseURL: nil)
+PlaygroundPage.current.liveView = webview
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
