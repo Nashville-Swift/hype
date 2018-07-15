@@ -16,14 +16,10 @@ public func render(_ node: Node) -> String {
         return text
         
     case let .element(name, attributes, child):
-        var attributesString: String? = nil
-        
-        if attributes.count > 0 {
-            attributesString = attributes
-                .map { $0.asPair }
-                .map { "\($0.0)=\"\($0.1)\"" }
-                .joined(separator: " ")
-        }
+        let attributesString = attributes
+            .map { $0.asPair }
+            .map { "\($0.0)=\"\($0.1)\"" }
+            .joined(separator: " ")
         
         let openingTagContent =
             [name, attributesString]
@@ -34,20 +30,16 @@ public func render(_ node: Node) -> String {
         let childContent = render(child)
         let closingTag = "</\(name)>"
  
-        return [
-            openingTag,
-            childContent,
-            closingTag
-            ]
+        return [openingTag, childContent, closingTag]
             .compactMap { $0 }
             .joined()
-        
-    case .empty:
-        return ""
         
     case let .siblings(nodes):
         return nodes
             .map(render)
             .joined()
+        
+    case .empty:
+        return ""
     }
 }
