@@ -15,12 +15,14 @@ import PlaygroundSupport
 import Hype
 
 /*:
- When designing interfaces, it's common to have a "component" that "wraps" or "decorates" another component. For example, imagine we have some styled text component being used to render content on a page. A different page may want to display the same text component in a small card off to the side.
+ When designing interfaces, it's common to have a "component" that "wraps" or "decorates" another component. For example, imagine we have some styled text component being used to render content on a page.
  
         // Page 1
         body {
             textComponent(contentA)
         }
+ 
+ A different page may want to display the same text component in a small card off to the side.
 
         // Page 2
         body {
@@ -30,7 +32,7 @@ import Hype
             }
         }
  
- Additionally, we may decide later that we want to place an image in the card:
+ Additionally, we may decide later that we want to place an image in the card instead of the text:
  
         // Page 2
         body {
@@ -40,11 +42,15 @@ import Hype
             }
         }
  
- Given some card styles, we could create the card like this:
+ Given some card styles...
  */
 
 let cardStyle = attributeDecorator([.class(value: "card")])
 let cardContentStyle = attributeDecorator([.class(value: "card-content")])
+
+/*:
+  we could create the card like this:
+ */
 
 let card: Component<Node> = { node in
     cardStyle <| div {
@@ -63,7 +69,7 @@ render(
 )
 
 /*:
- Since card is taking a node, it would be nice to use curly braces `{ }` like we do for the other elements. We tend to use `{ }` for denoting structure and parenthesis `( )` for passing data. We can change the type signature to achieve this look:
+ Since card is taking a node, it would be nice to use curly braces `{ }` like we do for the other elements. We tend to use `{ }` for denoting structure and parentheses `( )` for passing data. We can change the type signature to achieve this look:
  */
 
 let card2: (@escaping () -> Node) -> Node = { node in
@@ -75,7 +81,7 @@ let card2: (@escaping () -> Node) -> Node = { node in
 }
 
 /*:
- This seems a bit more natural:
+ Now it seems a bit more natural:
  */
 
 render(
@@ -146,7 +152,7 @@ render(
  Thoughts:
     1. Is this a common enough pattern to justify a new type?
  
-    "I think so. My first intuition was to use Component<Node> but as we saw in the first example, that led to parenthesis which looked out of place for something that was supposed to be wrapping another node. Having a typealias can guide people to write more natural looking components." - cconstable
+    "I think so. My first intuition was to use Component<Node> but as we saw in the first example, that led to parentheses which looked out of place for something that was supposed to be wrapping another node. Having a typealias can guide people to write more natural looking components." - cconstable
  
     2. If so, do we introduce a typealias only or a function as well?
  
