@@ -39,6 +39,8 @@
 		780B279A20E951F9002B435F /* Component.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Component.swift; sourceTree = "<group>"; };
 		782FF86520E9D8CC00E93F3C /* Styling.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = Styling.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		78645C6520FA917200E1DA7D /* AttributeDecorator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttributeDecorator.swift; sourceTree = "<group>"; };
+		78645C6820FB72EA00E1DA7D /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		78645C6920FB72F500E1DA7D /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		7870ADEC20EC15D000150F7F /* Class.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Class.swift; sourceTree = "<group>"; };
 		7870ADEE20EC197400150F7F /* Render.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Render.swift; sourceTree = "<group>"; };
 		7870ADF020EC2E8D00150F7F /* SemanticUI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SemanticUI.swift; sourceTree = "<group>"; };
@@ -54,7 +56,7 @@
 		78AC8BE220F53B6E00B907DE /* 03.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = 03.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		78AC8BE320F53B6E00B907DE /* 01.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = 01.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		78AC8BE420F53B6E00B907DE /* 02.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = 02.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
-		78E31A3020EFE0DD0012CF2E /* Sandbox.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = Sandbox.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
+		78E31A3020EFE0DD0012CF2E /* Proposals.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = Proposals.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		8EF8D0829C7A79D042B069B3 /* Pods-HypeTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HypeTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-HypeTests/Pods-HypeTests.release.xcconfig"; sourceTree = "<group>"; };
 		9C229E939B4E40246C91EC89 /* Pods_Hype.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Hype.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A0E4BA964B4D0C3D1BE3C8ED /* Pods-HypeTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HypeTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-HypeTests/Pods-HypeTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -93,9 +95,20 @@
 			path = Tutorial;
 			sourceTree = "<group>";
 		};
+		78645C6720FB72C100E1DA7D /* Proposals */ = {
+			isa = PBXGroup;
+			children = (
+				78645C6920FB72F500E1DA7D /* README.md */,
+				78E31A3020EFE0DD0012CF2E /* Proposals.playground */,
+			);
+			path = Proposals;
+			sourceTree = "<group>";
+		};
 		7872931820E7E66700CCE01B = {
 			isa = PBXGroup;
 			children = (
+				78645C6820FB72EA00E1DA7D /* README.md */,
+				78645C6720FB72C100E1DA7D /* Proposals */,
 				783A42BA20F7FCFE00102E52 /* Tutorial */,
 				7872933E20E80CEE00CCE01B /* Examples */,
 				7872932420E7E66700CCE01B /* Hype */,
@@ -146,7 +159,6 @@
 			children = (
 				7872933F20E80CEE00CCE01B /* NashvilleSwift.playground */,
 				782FF86520E9D8CC00E93F3C /* Styling.playground */,
-				78E31A3020EFE0DD0012CF2E /* Sandbox.playground */,
 				7870ADF220EC6E4E00150F7F /* Components.playground */,
 			);
 			path = Examples;

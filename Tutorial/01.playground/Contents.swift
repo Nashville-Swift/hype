@@ -29,14 +29,16 @@ indirect enum Node {
 
 /*:
  The `empty` case represents nothing. It's kind of like the `nil` of our nodes except it is a node. This allows us to get rid of this concept of things being "nil" and just talk about everything as a "node". It will be useful later!
+ 
+ The `indirect` keyword tells Swift that this enum is defined in terms of itself: an element can contain a `Node`!
 
- Here is a node that represents an <hr> tag:
+ Using this, we can represent a node for the <hr> tag (horizontal rule):
  */
 
 let hr = Node.element(name: "hr", children: .empty)
 
 /*:
- A <p> element:
+ That was a pretty trivial example. What about something that needs to take input like a <p> element?
  */
 
 let p: (String) -> Node = { text in
@@ -47,7 +49,7 @@ p("hello")
 p("world!")
 
 /*:
- A <div> element that contains other nodes
+ Similarly, a <div> element takes other nodes as input:
  */
 
 let div: (Node) -> Node = { node in
@@ -61,6 +63,8 @@ div(
 )
 
 /*:
+ Already we can begin to see that this mimics the natural structure of HTML.
+ 
  ### Rendering
  
  Let's start simple and render just text nodes. We can use pattern matching to handle deciding what to do with the node we want to render.
@@ -119,7 +123,7 @@ let dom =
     )
 
 /*:
- One neat artifact is that what we've written above has the same kind of structure as actual HTML.
+ One neat artifact is that what we've written above looks very similar to HTML. I would go as far to say if you understand HTML then you can understand what is written above.
  */
 
 render(dom)

@@ -1,3 +1,13 @@
+/* ------------------------------------------------------
+ Proposal: Adding a "Container" typealias
+ Author: ccontable
+ Date: July 2018
+ 
+ When designing interfaces, it's common to have a
+ "component" that "wraps" or "decorates" another
+ component. This can be done currently using the
+ Component typealias but is there a better way?
+ ------------------------------------------------------ */
 
 import UIKit
 import WebKit

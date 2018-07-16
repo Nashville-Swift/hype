@@ -1,3 +1,13 @@
+/* ------------------------------------------------------
+ Proposal: Adding attibutes using function composition
+ Author: ccontable
+ Date: July 2018
+ 
+ How can we add the ability to specifiy HTML attributes
+ on nodes in a way that is free from side-effects, easy
+ to reason about, and allows us to compose many attributes
+ together?
+ ------------------------------------------------------ */
 
 import UIKit
 import WebKit

@@ -68,13 +68,19 @@ render(postsComponent2(posts))
 /*:
  Much cleaner and more expressive IMO.
  
- Now imagine we want to not only render the list of posts using our `postComponent` but we'd also like to wrap it in some div that has some layout and styling. Here is one way we could do that:
+ Now imagine we want to not only render the list of posts using our `postComponent` but we'd also like to wrap it in some div that has some layout and styling. Here is one way we could do that.
+ 
+ Ignore the styling mechanism for now.
  */
 
+let fancyStyle = attributeDecorator(
+    [Attribute.custom(key: "style", value: "background-color:#F37")]
+)
+
 let fancyPostsComponent: Component<[Post]> = { posts in
-    div([S.ui, S.full_width, S.inverted]) {
+    div {
         (listComponent(postComponent))(posts)
-    }
+    } |> fancyStyle
 }
 
 render(fancyPostsComponent(posts))
@@ -84,7 +90,7 @@ render(fancyPostsComponent(posts))
  */
 
 let postsWrapper = { node in
-    div([S.ui, S.full_width, S.inverted]) { node }
+    div { node } |> fancyStyle
 }
 
 let fancyPostsComponent2 = { posts in
@@ -108,20 +114,31 @@ let fancyPostsComponent3 = { posts in
 }
 
 /*:
- Let's get real minimal and use the Forward Composition operator to make this a one-liner. Think about the two Components we have: they are just functions.
+ Let's get concise and use the Forward Composition operator to make this a one-liner. Think about the two Components we have: they are just functions.
  
-        postsComponent: ([Posts]) -> Node
-        postsWrapper:   (Node)    -> Node
+                       ┌──────────────────────────┐
+                       │   these types line up    │
+                       └────────────┬─────────────┘
+                                    │
+                                    ▼
+        postsComponent: [Posts] -> Node
+        postsWrapper:      │       Node -> Node
+                           │                │
+                           └──┬─────────────┘
+                              │
+                              ▼
+        composition: [Posts] -> Node
  
- The types line up! We have something that goes from A -> B and something that goes from B -> C. Math tells us that we can make something now that goes directly from A -> C. No need to create our own specialized functions, components, etc. We can just use the forward composition operator:
+ The types line up! We have something that goes from `A -> B` and something that goes from `B -> C`. Math tells us that we can make something now that goes directly from `A -> C`. We can just pass the output of the first function into the input of the second function and then just pretend that whole thing we just described is a single function from `A -> C`
+ 
+ No need to invent our own specialized functions, components, etc. There is a well-known existing operator for this: forward composition operator.
  */
 
 infix operator >>> : ForwardComposition
 
 let fancyPostsComponent4 = listComponent(postComponent) >>> postsWrapper
-
 render(fancyPostsComponent4(posts))
 
 /*:
- I think that is pretty neat.
+ I think that is pretty neat. One line of code can express what was taking us many lines of code above. However, we are always making a tradeoff: Is this more readable? Is it easier to understand than the previous examples? Perhaps not if this is your first time seeing these operators. In the end, you need to use the right tool for the job and while forward composition is elegant, it might not make sense for your team or app.
  */
