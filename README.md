@@ -8,6 +8,17 @@
 - Components for composition
 - Small core (<200 LOC)
 
+```swift
+html {
+    body {
+        div {
+            h1("My Blog") +
+            p("hello!")
+        }
+    }
+}
+```
+
 #### Future
 
 - Middleware layer for rendering
@@ -16,4 +27,5 @@
 
 ---
 
-MIT License
+- Created by the Nashville Swift Language Group
+- MIT License
